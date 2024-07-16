@@ -4,7 +4,8 @@ import mongoose,{Schema,Document} from "mongoose";
 export interface DepartmentSchemaType extends Document{
     departmentName:string;
     departmentHead:mongoose.Schema.Types.ObjectId;
-    courses:mongoose.Schema.Types.ObjectId[]
+    courses:mongoose.Schema.Types.ObjectId[];
+    employees:mongoose.Schema.Types.ObjectId[];
     createdAt:Date;
     updatedAt:Date;
 
@@ -14,6 +15,11 @@ const departmentSchema = new Schema<DepartmentSchemaType>({
         type:mongoose.Schema.Types.ObjectId,
         ref:"Employee"
     },
+    // emplooyes which is inculde this department 
+    employees:[{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:"Employee"
+    }],
     departmentName:{
         type:String,
         required:[true,"please enter the department name"]
