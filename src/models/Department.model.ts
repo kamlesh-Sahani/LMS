@@ -26,7 +26,7 @@ const departmentSchema = new Schema<DepartmentSchemaType>({
     },
     courses:[{
         type:mongoose.Schema.Types.ObjectId,
-        ref:"Courses"
+        ref:"Course"
     }]
 },{timestamps:true})
 

@@ -21,7 +21,7 @@ interface ProfessionalType{
     departmentId:mongoose.Schema.Types.ObjectId;
     designation:string;
     dateOfJoining:Date;
-    employmentType:"full-time"|"part-time"|"internship"|"contract"|"other";
+    employmentType:"FULL_TIME"|"PART_TIME"|"INTERNSHIP"|"CONTRACT"|"OTHER";
 }
 interface ExperienceType{
     company:string;
@@ -38,7 +38,7 @@ export interface EmployeeSchemaType extends Document {
     educationInof:EducationType;
     experienceInfo:ExperienceType;
     isActive:boolean; // is working currently or leave the organisation
-    role:"regular"|"hod"|"vice-principle"|"director";
+    role:"REGULAR"|"HOD"|"VICE_PRINCIPLE"|"DIRECTOR";
     accessToke:string;
     refreshToken:string;
     createdAt:Date,
@@ -97,7 +97,8 @@ const employeeSchema:Schema<EmployeeSchemaType> = new Schema({
         },
         employmentType:{
             type:String,
-            enum:['full-time',"part-time","internship","contract","other"]
+            enum:['FULL_TIME',"PART_TIME","INTERNSHIP","CONTRACT","OTHER"],
+            default:"FULL_TIME"
 
         }
 
@@ -117,8 +118,8 @@ const employeeSchema:Schema<EmployeeSchemaType> = new Schema({
     },
     role:{
         type:String,
-        enum:["regular","hod","vice-principle","director"],
-        default:"regular"
+        enum:["REGULAR","HOD","VICE_PRINCIPLE","DIRECTOR"],
+        default:"REGULAR"
     },
     refreshToken:{
         type:String
