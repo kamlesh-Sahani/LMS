@@ -1,5 +1,4 @@
 import mongoose,{Schema,Document} from "mongoose";
-
 export interface LeaveApplicationType extends Document {
     employeeId:mongoose.Schema.Types.ObjectId;
     leaveTypeId:mongoose.Schema.Types.ObjectId;

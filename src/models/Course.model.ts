@@ -4,7 +4,7 @@ export interface CourseType extends Document{
     courseName:string;
     courseCode:string;
     departmentId:mongoose.Schema.Types.ObjectId;
-    instructorId:mongoose.Schema.Types.ObjectId;
+    instructorId:mongoose.Schema.Types.ObjectId; //optional
     createdAt:Date;
     updatedAt:Date;
 }
@@ -12,7 +12,7 @@ export interface CourseType extends Document{
 
 const courseSchema = new Schema<CourseType>({
     courseName:{
-        typpe:String,
+        type:String,
         required:[true,"please enter the course name"],
         unique:true,
     },

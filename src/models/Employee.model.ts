@@ -1,10 +1,10 @@
-import mongoose,{Schema,Document, mongo} from "mongoose";
+import mongoose,{Schema,Document} from "mongoose";
 
 // types of employee
 interface EducationType{
     highestQualification:string //ug,pg,phd others
     university:string;
-    yearOfPassing:string;
+    yearOfPassing:Date;
     specialization?:string;
 
 }
@@ -35,7 +35,7 @@ interface ExperienceType{
 export interface EmployeeSchemaType extends Document {
     personalInfo:PersonalType;
     professionalInfo:ProfessionalType;
-    educationInof:EducationType;
+    educationInfo:EducationType;
     experienceInfo:ExperienceType;
     isActive:boolean; // is working currently or leave the organisation
     role:"REGULAR"|"HOD"|"VICE_PRINCIPLE"|"DIRECTOR";
@@ -112,13 +112,31 @@ const employeeSchema:Schema<EmployeeSchemaType> = new Schema({
         },
         responsibilities:String
     },
+    educationInfo:{
+        highestQualification:{
+            type:String,
+            required:[true,"please enter the highest education"]
+        },
+        university:{
+            type:String,
+            required:[true,"please enter the highest education"]
+        },
+        yearOfPassing:{
+            type:String,
+            required:[true,"please enter the highest education"]
+        },
+        specialization:{
+            type:String,
+            required:[true,"please enter the highest education"]
+        },
+    },
     isActive:{
         type:Boolean,
-        required:[true,"please enter the is active"]
+        default:true
     },
     role:{
         type:String,
-        enum:["REGULAR","HOD","VICE_PRINCIPLE","DIRECTOR"],
+        enum:["REGULAR","HOD","VICE_PRINCIPLE","DIRECTOR"], // TODO non acad adn acadmic add staff 
         default:"REGULAR"
     },
     refreshToken:{

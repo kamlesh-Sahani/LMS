@@ -7,7 +7,6 @@ export interface LeaveBalanceType extends Document {
   createdAt: Date;
   updatedAt: Date;
 }
-
 const leaveBalanceSchema = new Schema<LeaveBalanceType>(
   {
     employeeId: {
