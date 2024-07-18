@@ -1,7 +1,7 @@
-import { Separator } from "@/components/ui/separator";
+import { Separator } from "@/components/components/ui/separator";
 import { columns } from "./columns";
 import { DataTable } from "./data-table";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/components/ui/tabs";
 import { getData } from "@/constants/leavesdata";
 
 

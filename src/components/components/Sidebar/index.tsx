@@ -11,7 +11,7 @@ import { usePathname } from "next/navigation";
 import { BiCloset, BiLogOut } from "react-icons/bi";
 import { IoMdClose } from "react-icons/io";
 import { IoSettingsOutline } from "react-icons/io5";
-import { Separator } from "../../ui/separator";
+import { Separator } from "../ui/separator";
 
 const Sidebar = () => {
   const [close , setClose] = useState<Boolean>(false)
