@@ -1,7 +1,7 @@
 "use client";
 import ChartDemo from "@/components/components/ChartDemo";
 import ListLeave from "@/components/components/ListLeave";
-import { Separator } from "@/components/components/ui/separator";
+import { Separator } from "@/components/ui/separator";
 import { bal } from "@/constants/data";
 import { useRouter } from "next/navigation";
 import React from "react";
