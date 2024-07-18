@@ -1,6 +1,6 @@
-import { columns } from '@/app/user/leaveshistory/columns'
-import { DataTable } from '@/app/user/leaveshistory/data-table'
-import { getData } from '@/app/user/leaveshistory/page'
+import { columns } from '@/app/frontend/user/leaveshistory/columns'
+import { DataTable } from '@/app/frontend/user/leaveshistory/data-table'
+import { getData } from '@/constants/leavesdata'
 import { cn } from '@/lib/utils'
 import React from 'react'
 

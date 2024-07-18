@@ -1,11 +1,10 @@
 "use client";
-import ChartDemo from "@/components/ChartDemo";
-import ListLeave from "@/components/ListLeave";
-import { Separator } from "@/components/ui/separator";
+import ChartDemo from "@/components/components/ChartDemo";
+import ListLeave from "@/components/components/ListLeave";
+import { Separator } from "@/components/components/ui/separator";
 import { bal } from "@/constants/data";
 import { useRouter } from "next/navigation";
 import React from "react";
-import LeaveHistory from "./leaveshistory/page";
 
 const Users = () => {
   const routes = useRouter();

@@ -1,5 +1,5 @@
-import Navbar from "@/components/Navbar";
-import Sidebar from "@/components/Sidebar";
+import Navbar from "@/components/components/Navbar";
+import Sidebar from "@/components/components/Sidebar";
 import { ReactNode } from "react";
 
 export default function User({ children }: { children: ReactNode }) {
