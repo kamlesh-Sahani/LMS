@@ -1,13 +1,11 @@
-"use client";
 import ChartDemo from "@/components/components/ChartDemo";
 import ListLeave from "@/components/components/ListLeave";
 import { Separator } from "@/components/components/ui/separator";
 import { bal } from "@/constants/data";
-import { useRouter } from "next/navigation";
+import { redirect } from "next/navigation";
 import React from "react";
 
 const Users = () => {
-  const routes = useRouter();
   return (
     <section className=" flex flex-col w-full relative h-screen pt-3">
       <h1 className="text-4xl font-bold ">Dashboard</h1>
@@ -17,7 +15,7 @@ const Users = () => {
         {bal.map((itmes) => (
           <div
             className="relative min-w-[10rem]  flex flex-col  justify-center  sm:p-4 transition-all duration-150  border rounded-xl cursor-pointer hover:shadow-lg hover:border-black"
-            onClick={() => routes.push("/user/leavesrequest")}
+            onClick={()=> redirect("/user/leavesrequest")}
           >
             <p className=" font-medium ">{itmes.leaveType}</p>
             <h1 className="text-2xl font-bold">
