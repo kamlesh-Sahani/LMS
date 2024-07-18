@@ -1,6 +1,6 @@
 import FooterSection from '@/components/FooterSection'
-import HeroSection from '@/components/HeroSection'
-import NavbarSection from '@/components/NavbarSection'
+import HeroSection from '@/components/User/HeroSection'
+import NavbarSection from '@/components/User/NavbarSection'
 import React from 'react'
 
 const Home = () => {
