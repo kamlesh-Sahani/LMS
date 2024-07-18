@@ -1,20 +1,20 @@
 "use client";
 import React, { useState, ChangeEvent, FormEvent } from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
-// import { zodResolver } from '@hookform/resolvers/zod';
+import { zodResolver } from '@hookform/resolvers/zod';
 import { loginSchema, LoginSchema } from '@/lib/validation/loginSchema';
 import Link from 'next/link';
 import { IoEyeOutline } from "react-icons/io5";
 import { FaRegEyeSlash } from "react-icons/fa";
 const ResetPassword= () => {
     //zod resolver
-    // const {
-    //     register,
-    //     handleSubmit,
-    //     formState: { errors },
-    // } = useForm<LoginSchema>({
-    //     resolver: zodResolver(loginSchema),
-    // });
+    const {
+        register,
+        handleSubmit,
+        formState: { errors },
+    } = useForm<LoginSchema>({
+        resolver: zodResolver(loginSchema),
+    });
 
     const [password, setPassword] = useState<string | any>('');
     const [show, setShow] = useState(true);
@@ -29,7 +29,7 @@ const ResetPassword= () => {
                         <label htmlFor="password" className='block text-gray-500 font-medium mb-2 my-2'>Password</label>
                         <div className='relative flex items-center'>
                             <input
-                                // {...register('password')}
+                                {...register('password')}
                                 type={show ? "text":"password"}
                                 id="password"
                                 onChange={(e) => setPassword(e.target.value)}
@@ -40,7 +40,7 @@ const ResetPassword= () => {
                                 show ? <IoEyeOutline onClick={() => setShow(!show)} className='absolute right-3 text-gray-500 cursor-pointer' /> : <FaRegEyeSlash onClick={() => setShow(!show)} className='absolute right-3 text-gray-500 cursor-pointer' />
                             }
                         </div>
-                        {/* {errors.password && <p className='text-red-500'>{errors.password.message}</p>} */}
+                        {errors.password && <p className='text-red-500'>{errors.password.message}</p>}
                     </div>
                     
                     <div className='flex justify-center py-5'>
