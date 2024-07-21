@@ -1,8 +1,8 @@
 import EmployeeModel from "@/models/Employee.model";
 import { NextResponse, NextRequest } from "next/server";
 import bcryptjs from "bcryptjs";
-import { access } from "fs";
-
+import dbConnect from "@/app/lib/dbConnect";
+dbConnect();
 async function passwordCompare(plainPassword: string, hashedPassword: string) {
   return await bcryptjs.compare(plainPassword, hashedPassword);
 }
@@ -11,7 +11,6 @@ const generateAccessAndRefreshToken = async (employeeId: any)=> {
 
     console.log(employeeId,"id")
     const employee = await EmployeeModel.findById(employeeId);
-    console.log(employee,"asdasdada")
     if (!employee) {
       return NextResponse.json(
         {
@@ -24,7 +23,7 @@ const generateAccessAndRefreshToken = async (employeeId: any)=> {
     }
     const accessToken = await employee.generateAccessToken();
     const refreshToken = await employee.generateRefreshToken();
-    console.log(accessToken,refreshToken,"sad")
+
     employee.refreshToken = refreshToken;
     await employee.save();
     return { accessToken, refreshToken };
@@ -70,9 +69,8 @@ export async function POST(req: NextRequest) {
     // password and email is right
 
  const {accessToken,refreshToken}:any = await generateAccessAndRefreshToken(employee._id)
- const loggedEmployee = await EmployeeModel.findById(employee._id);
+ const loggedEmployee = await EmployeeModel.findById(employee._id).select("-personalInfo.password");
 
- console.log(accessToken,refreshToken, "res")
 
     const option = {
       httpOnly: true,

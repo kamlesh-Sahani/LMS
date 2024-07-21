@@ -35,6 +35,6 @@ const leaveApprovalSchema = new Schema<LeaveApprovalType>({
 },{timestamps:true});
 
 
-const LeaveApprovalModel = (mongoose.models.Approval as mongoose.Model<LeaveApprovalType>) || mongoose.model("Approval",leaveApprovalSchema);
+const LeaveApprovalModel = (mongoose.models.LeaveApproval as mongoose.Model<LeaveApprovalType>) || mongoose.model("LeaveApproval",leaveApprovalSchema);
 
 export default LeaveApprovalModel;

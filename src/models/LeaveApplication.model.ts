@@ -41,7 +41,7 @@ const leaveApplicationSchema:Schema<LeaveApplicationType>= new Schema({
         type:Date,
         default:()=>Date.now(),
         required:[true,"applied date is not found"]
-    }
+    },
 },{timestamps:true})
 
 const LeaveApplicationModel =(mongoose.models.LeaveApplication as mongoose.Model<LeaveApplicationType>) || mongoose.model("LeaveApplication",leaveApplicationSchema);
