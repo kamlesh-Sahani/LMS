@@ -13,6 +13,13 @@ export async function POST(req:NextRequest){
                 message:"please fill the all fields "
             },{status:400});
         }
+        const isExist= await LeaveTypesModel.findOne({name});
+        if(isExist){
+            return NextResponse.json({
+                success:false,
+                message:"Leave type is alreay exist"
+            },{status:400})
+        }
         const leaveType = await LeaveTypesModel.create({
             name,
             description,

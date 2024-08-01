@@ -11,7 +11,6 @@ export async function GET(){
                 message:"leave application is not found"
             },{status:404})
         }
-
         return NextResponse.json({
             success:true,
             message:"leave application founded",
